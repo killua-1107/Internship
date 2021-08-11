@@ -1,0 +1,41 @@
+1.create an schema bikedb with tables company,bike,country?
+
+CREATE TABLE bike (
+    id  int NOT NULL auto_increment,
+    comp_name varchar(100),
+    bike_name varchar(100),
+    status varchar(100)
+);
+
+CREATE TABLE company (
+    id  int NOT NULL auto_increment,
+    comp_name varchar(100),
+    founding_year varchar(100)
+);
+
+CREATE TABLE country (
+    id  int NOT NULL auto_increment,
+    country_name varchar(100)
+);
+
+
+2.select bike from specific country with their company name and founding year?
+
+select bike.bike_name AS NAME, company.comp_name AS COMMPANY, country.country_name AS COUNTRY, company.founding_year AS YEAR from (( country
+ INNER join company ON country.id=company.id)
+ INNER join bike ON country.id=bike.id)
+ WHERE company.comp_name='BMW' AND company.founding_year='2015';
+
+
+3.select bike from spsecific country with their status ?
+
+select bike.bike_name AS NAME, country.country_name AS COUNTRY, bike.status AS STATUS from ( country 
+INNER join bike ON country.id=bike.id) 
+WHERE bike.status='Active';
+
+
+4.select company from specific country ? 
+
+select company.comp_name AS COMPANY, country.country_name AS COUNTRY FROM (country 
+INNER JOIN company ON country.id=company.id) 
+WHERE country_name='India';
