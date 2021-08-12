@@ -21,10 +21,10 @@ CREATE TABLE company (
     comp_name varchar(100),
     founding_year varchar(100)
 );
-INSERT INTO company VALUES (1,'BMW','2015');
-INSERT INTO company VALUES (2,'Royal Enfield','2006');
-INSERT INTO company VALUES (3,'TVS','2009');
-INSERT INTO company VALUES (4,'Bajaj','2012');
+INSERT INTO company VALUES (1,'BMW','1923');
+INSERT INTO company VALUES (2,'Royal Enfield','1955');
+INSERT INTO company VALUES (3,'TVS','1978');
+INSERT INTO company VALUES (4,'Bajaj','1945');
 
 CREATE TABLE country (
     id  int NOT NULL auto_increment,
@@ -40,7 +40,7 @@ INSERT INTO country VALUES (4,'India');
 select bike.bike_name AS NAME, company.comp_name AS COMMPANY, country.country_name AS COUNTRY, company.founding_year AS YEAR from (( country
  INNER join company ON country.id=company.id)
  INNER join bike ON country.id=bike.id)
- WHERE company.comp_name='BMW' AND company.founding_year='2015';
+ WHERE company.comp_name='BMW' AND company.founding_year='1923';
 
 
 3.select bike from spsecific country with their status ?
