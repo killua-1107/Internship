@@ -1,23 +1,39 @@
 1.create an schema bikedb with tables company,bike,country?
 
+\sql
+\connect root@localhost
+CREATE SCHEMA 'bikedb';
+use bikedb;
+
 CREATE TABLE bike (
     id  int NOT NULL auto_increment,
     comp_name varchar(100),
     bike_name varchar(100),
     status varchar(100)
 );
+INSERT INTO bike VALUES (1,'BMW','F 900 R','Active');
+INSERT INTO bike VALUES (2,'Royal Enfield','Bullet 350','Active');
+INSERT INTO bike VALUES (3,'TVS','Apache RTR 200','Active');
+INSERT INTO bike VALUES (4,'Bajaj','Pulsar 220','Active');
 
 CREATE TABLE company (
     id  int NOT NULL auto_increment,
     comp_name varchar(100),
     founding_year varchar(100)
 );
+INSERT INTO company VALUES (1,'BMW','2015');
+INSERT INTO company VALUES (2,'Royal Enfield','2006');
+INSERT INTO company VALUES (3,'TVS','2009');
+INSERT INTO company VALUES (4,'Bajaj','2012');
 
 CREATE TABLE country (
     id  int NOT NULL auto_increment,
     country_name varchar(100)
 );
-
+INSERT INTO country VALUES (1,'Germany');
+INSERT INTO country VALUES (2,'India');
+INSERT INTO country VALUES (3,'India');
+INSERT INTO country VALUES (4,'India');
 
 2.select bike from specific country with their company name and founding year?
 
